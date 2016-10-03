@@ -4,38 +4,12 @@ Async recursive timers
 ```sh
 npm install often --save
 ```
-## Example
 
-```js
+```sh
 var often = require('often')
-
-often(function() {
-  console.log(new Date)
-  if ('someCondition') {
-    this.done()
-  }
-}).start().wait(1000)
-
-often(function() {
-  console.info(this)
-  if (this._trial === 3) {
-    this.stop()
-    console.warn(this)
-  }
-}).start(1000).wait(200)
-
-often(function() {
-  if ('Not Ready Yet') {
-    this.wait(1000 + this._wait)
-    console.info('Slowing down')
-  } else {
-    console.info('Ready!')
-  }
-}).start()
 ```
 
 ## API
-
 ### `often(fn=undefined)`
 - Get an `often` instance with `fn` as recursion function
 - All methods are chainable
@@ -71,8 +45,61 @@ Initialize instance
 - `._trial`: integer|null
 - `._wait`: `ms`|null
 
-## Develop
+## Examples
+### Poll condition
+```js
+var often = require('often')
 
+often(function() {
+  console.log(new Date)
+  if ('someCondition') {
+    this.done()
+  }
+}).wait(1000).start()
+```
+
+### Limit attempts
+```js
+var often = require('often')
+
+often(function() {
+  console.info(this)
+  if (this._trial === 3) {
+    this.stop()
+    console.warn(this)
+  }
+}).start(1000).wait(200)
+```
+
+### Decay task
+```js
+var often = require('often')
+
+often(function() {
+  if ('Not Ready Yet') {
+    this.wait(1000 + this._wait)
+    console.info('Slowing down')
+  } else {
+    console.info('Ready!')
+  }
+}).start()
+```
+
+### Heartbeat
+```js
+var often = require('often')
+var energy = require('energy')
+var emitter = energy()
+var heartbeat = often(function() {
+  emitter.emit('heartbeat')
+}).wait(1000).start()
+
+emitter.on('heartbeat', function() {
+  console.log('I run every second')
+})
+```
+
+## Develop
 ```sh
 git clone https://github.com/ryanve/often.git
 cd often
