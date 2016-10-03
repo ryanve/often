@@ -12,18 +12,20 @@
   "homepage": "https://github.com/ryanve/often#readme",
   "keywords": [
     "timer",
+    "timers",
     "interval",
-    "async",
     "browser",
     "server",
     "functions",
     "function",
-    "timers",
     "setTimeout",
     "setInterval",
+    "recursive",
+    "recursion",
     "retry",
     "schedule",
-    "asynchronous"
+    "asynchronous",
+    "async"
   ],
   "repository": {
     "type": "git",
