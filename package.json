@@ -1,0 +1,51 @@
+{
+  "name": "often",
+  "version": "0.1.0",
+  "description": "Async recursive timers",
+  "author": "Ryan Van Etten",
+  "license": "MIT",
+  "main": "often.js",
+  "scripts": {
+    "pretest": "jshint often.js && jshint test.js",
+    "test": "node test.js"
+  },
+  "homepage": "https://github.com/ryanve/often#readme",
+  "keywords": [
+    "timer",
+    "interval",
+    "async",
+    "browser",
+    "server",
+    "functions",
+    "function",
+    "timers",
+    "setTimeout",
+    "setInterval",
+    "retry",
+    "schedule",
+    "asynchronous"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanve/often.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ryanve/often/issues"
+  },
+  "jshintConfig": {
+    "asi": true,
+    "boss": true,
+    "browser": true,
+    "eqnull": true,
+    "expr": true,
+    "supernew": true,
+    "latedef": "nofunc",
+    "maxerr": 5,
+    "node": true,
+    "undef": true,
+    "unused": true
+  },
+  "devDependencies": {
+    "jshint": "^2.9.3"
+  }
+}
