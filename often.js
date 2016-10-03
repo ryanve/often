@@ -10,7 +10,7 @@
 
   function start(o, delay) {
     o.clear()
-    o._timer = setTimeout(recur(o), delay || 0)
+    o._timer = setTimeout(recur(o), delay > 0 ? delay : 0)
     return o
   }
 
