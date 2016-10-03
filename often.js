@@ -25,10 +25,7 @@
   }
 
   model.init = function(fn) {
-    this._recur = true
-    this._timer = null
-    this._trial = null
-    return this.wait(0).use(fn)
+    return this.clean().wait(0).use(fn)
   }
 
   model.use = function(fn) {
@@ -52,6 +49,11 @@
     return this
   }
 
+  model.clean = function() {
+    this._function = this._recur = this._trial = this._timer = this._wait = null
+    return this
+  }
+
   model.stop = function() {
     this._recur = false
     this._trial = null
@@ -59,9 +61,7 @@
   }
 
   model.done = function() {
-    this.stop()
-    this._function = this._recur = this._wait = null
-    return this
+    return this.clear().clean()
   }
 
   return often
