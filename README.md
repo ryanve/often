@@ -61,6 +61,7 @@ Clear active timer
 ### Properties
 - `._function`: `fn`|null
 - `._recur`: boolean|null
+- `._timer`: integer|null
 - `._trial`: integer|null
 - `._wait`: `ms`|null
 
