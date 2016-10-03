@@ -1,6 +1,6 @@
 {
   "name": "often",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Async recursive timers",
   "author": "Ryan Van Etten",
   "license": "MIT",
