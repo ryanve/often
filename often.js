@@ -5,13 +5,7 @@
   var model = often.prototype
 
   function often(fn) {
-    var o = this instanceof often ? this : new often
-    o._recur = true
-    o._timer = null
-    o._trial = null
-    o._wait = 0
-    o._function = fn
-    return o
+    return (this instanceof often ? this : new often).init(fn)
   }
 
   function start(o, delay) {
@@ -28,6 +22,13 @@
           if (o._recur) start(o, o._wait)
         }
       }
+  }
+
+  model.init = function(fn) {
+    this._recur = true
+    this._timer = null
+    this._trial = null
+    return this.wait(0).use(fn)
   }
 
   model.use = function(fn) {

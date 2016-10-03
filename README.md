@@ -58,6 +58,9 @@ Replace the recursion function
 ### `.clear()` **internal**
 Clear active timer
 
+### `.init(fn=undefined)` **internal**
+Initialize instance
+
 ### Properties
 - `._function`: `fn`|null
 - `._recur`: boolean|null
