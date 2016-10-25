@@ -15,13 +15,13 @@
   }
 
   function recur(o) {
-      return function() {
-        if (o._recur) {
-          o._trial++
-          o._function()
-          if (o._recur) start(o, o._wait)
-        }
+    return function() {
+      if (o._recur) {
+        o._trial++
+        o._function()
+        if (o._recur) start(o, o._wait)
       }
+    }
   }
 
   model.init = function(fn) {
